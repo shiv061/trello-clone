@@ -3,11 +3,13 @@ import { Column } from './Column';
 import { AppContainer } from './styles';
 import { AddNewItem } from './AddNewItem';
 import { useAppState } from './AppStateContext';
+import CustomLayer from './CustomDragLayer';
 
 function App() {
   const { state, dispatch } = useAppState();
   return (
     <AppContainer>
+      <CustomLayer />
       {state.lists.map((list, i) => (
         <Column id={list.id} text={list.text} key={list.id} index={i} />
       ))}
